@@ -63,6 +63,6 @@ public class PrzedmiotController {
 
         return przedmiotRepository.DeletePrzedmiot(przedmiot);
     }
-    
+
 
 }
