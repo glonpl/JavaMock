@@ -6,7 +6,8 @@ public class Klient {
     public String Nazwisko;
     public String Email;
 
-    public Klient(String imie, String nazwisko, String email) {
+    public Klient(int id,String imie, String nazwisko, String email) {
+        Id=id;
         Imie = imie;
         Nazwisko = nazwisko;
         Email = email;
