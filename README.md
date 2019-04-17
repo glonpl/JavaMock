@@ -4,7 +4,7 @@ Second project for Java testing lectures
 The project entities are in polish on the task diagram, so are classes and fields in project.
 
 
-### Projekt 6 (20 pkt)
+### Projekt 6 (20 pkt)   [![Build Status](https://travis-ci.com/glonpl/JavaMock.svg?token=LpuJyLDJhg3xqjKJ2jBB&branch=master)](https://travis-ci.com/glonpl/JavaMock)
 
 Rozważmy bardzo uproszczoną aplikacje w sklepie internetowym, która jest opisana danym diagramem związków encji: Diagram ERD
 ![alt text](https://camo.githubusercontent.com/be73b7e9fd164b26dfdbe9c42225fffa87a92828/68747470733a2f2f696e662e75672e6564752e706c2f7e6d6d696f746b2f447964616b74796b612f323031362d323031372f54414a415641323031362d323031372f4552442e706e67)
