@@ -8,4 +8,5 @@ public interface IZamowienie {
     List<Zamowienie> GetZamowienieFromKlient(int klientId);
     boolean AddZamowienie(Zamowienie zamowienie);
     boolean DeleteZamowienie(Zamowienie zamowienie);
+    boolean UpdateZamowienie(Zamowienie zamowienie);
 }
