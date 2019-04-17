@@ -9,4 +9,12 @@ public class Zamowienie_Przedmiot {
         ZamowienieID = zamowienieID;
         PrzedmiotID = przedmiotID;
     }
+
+    public int getZamowienieID() {
+        return ZamowienieID;
+    }
+
+    public int getPrzedmiotID() {
+        return PrzedmiotID;
+    }
 }

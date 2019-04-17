@@ -19,7 +19,7 @@ public class KlientController {
     public Klient GetKlient(int klientId){return klientRepository.GetKlient(klientId);}
     public boolean AddKlient (Klient klient){
         if(validator.KlientNull(klient)){
-            throw new IllegalArgumentException("client is null");
+            throw new IllegalArgumentException("klient is null");
         }
         if(validator.KlientValid(klient)){
             return klientRepository.AddKlient(klient);
@@ -27,7 +27,7 @@ public class KlientController {
         return false;}
     public boolean DeleteKlient (Klient klient) {
         if (validator.KlientNull(klient)) {
-            throw new IllegalArgumentException("client is null");
+            throw new IllegalArgumentException("klient is null");
         }
         if (klientRepository.GetKlient(klient.getId()) == null) {
             return false;
@@ -40,7 +40,7 @@ public class KlientController {
 
         public boolean UpdateKlient (Klient klient){
         if(validator.KlientNull(klient)){
-            throw new IllegalArgumentException("client is null");
+            throw new IllegalArgumentException("klient is null");
         }
             if(!validator.KlientValid(klient)){
                 return false;
@@ -50,6 +50,7 @@ public class KlientController {
             }
             return klientRepository.UpdateKlient(klient);
         }
+
 
 }
 
