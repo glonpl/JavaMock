@@ -8,11 +8,13 @@ import org.easymock.EasyMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.mock;
 import static org.easymock.EasyMock.replay;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,10 +35,9 @@ public class KlientControllerEMTest {
     //adding
     @Test
     void AddClientNullThrowsException(){
-        Klient klient = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
-        expect(validator.KlientNull(klient)).andReturn(true);
+        expect(validator.KlientNull(null)).andReturn(true);
         replay(validator);
-        assertThrows(IllegalArgumentException.class, () -> klientController.AddKlient(klient), "klient is null");
+        assertThrows(IllegalArgumentException.class, () -> klientController.AddKlient(null), "klient is null");
     }
     @Test
     void AddClientInvalidReturnsFalse(){
@@ -90,7 +91,20 @@ public class KlientControllerEMTest {
         replay(zamowienieRepository);
         assertFalse(klientController.DeleteKlient(klient));
     }
+    @Test
+    void DeleteClientProperlyReturnsNotFalse(){
+        Klient klient = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
+
+        expect(validator.KlientNull(klient)).andReturn(false);
+        replay(validator);
+        expect(klientRepository.GetKlient(1)).andReturn(klient);
+        expect(klientRepository.DeleteKlient(klient)).andReturn(true);
+        replay(klientRepository);
+        expect(zamowienieRepository.GetZamowienieFromKlient(1)).andReturn(new ArrayList<>());
+        replay(zamowienieRepository);
+        assertThat(klientController.DeleteKlient(klient)).isNotEqualTo(false);
+    }
+//update
 
 
-   // klientRepository.GetKlient(klient.getId()) == null
 }
