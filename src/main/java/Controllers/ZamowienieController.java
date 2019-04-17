@@ -17,11 +17,12 @@ public class ZamowienieController {
     private IPrzedmiot przedmiotRepository;
     private IValidation validation;
 
-    public ZamowienieController(IZamowienie _zamowienieRepository, IZamowienie_Przedmiot _zamowienie_przedmiotRepository, IPrzedmiot _przedmiotRepository) {
+    public ZamowienieController(IZamowienie _zamowienieRepository, IZamowienie_Przedmiot _zamowienie_przedmiotRepository, IPrzedmiot _przedmiotRepository,IValidation _validation) {
 
         zamowienieRepository = _zamowienieRepository;
         zamowienie_przedmiotRepository = _zamowienie_przedmiotRepository;
         przedmiotRepository = _przedmiotRepository;
+        validation=_validation;
     }
     public boolean AddPrzedmiotToZamowienie(Przedmiot przedmiot, Zamowienie zamowienie){
         if (!validation.PrzedmiotNull(przedmiot)||!validation.ZamowienieNull(zamowienie)) {

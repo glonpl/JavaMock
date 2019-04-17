@@ -105,6 +105,70 @@ public class KlientControllerEMTest {
         assertThat(klientController.DeleteKlient(klient)).isNotEqualTo(false);
     }
 //update
+@Test
+void UpdateNullClientThrowsException(){
+    expect(validator.KlientNull(null)).andReturn(true);
+    replay(validator);
+    assertThrows(IllegalArgumentException.class, () -> klientController.UpdateKlient(null), "Klient is null");
+}
+@Test
+    void UpdateInvalidClientReturnsFalse(){
+    Klient klient = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
 
+    expect(validator.KlientNull(klient)).andReturn(false);
+    expect(validator.KlientValid(klient)).andReturn(false);
+        replay(validator);
+        assertFalse(klientController.UpdateKlient(klient));
+    }
+    @Test
+    void UpdateUnExistingClientReturnsFalse(){
+        Klient klient = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
 
+        expect(validator.KlientNull(klient)).andReturn(false);
+        expect(validator.KlientValid(klient)).andReturn(true);
+        replay(validator);
+        expect(klientRepository.GetKlient(klient.getId())).andReturn(null);//could actually comment this two lines
+        replay(klientRepository);
+
+        assertFalse(klientController.UpdateKlient(klient));
+    }
+    @Test
+    void UpdateClientReturnsTrue(){
+        Klient klient = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
+
+        expect(validator.KlientNull(klient)).andReturn(false);
+        expect(validator.KlientValid(klient)).andReturn(true);
+        replay(validator);
+        expect(klientRepository.GetKlient(klient.getId())).andReturn(klient);
+        expect(klientRepository.UpdateKlient(klient)).andReturn(true);
+        replay(klientRepository);
+        assertTrue(klientController.UpdateKlient(klient));
+    }
+    //getters
+    @Test
+    void GetAllReturnsList(){
+        List<Klient> klients = new ArrayList<>();
+        Klient klient1 = new Klient(1,"Adam","Jodłowski","ajodl@o2.pl");
+        Klient klient2 = new Klient(2,"Zbychu","Wodecki","zwodecki@o2.pl");
+  klients.add(klient1);
+  klients.add(klient2);
+        expect(klientRepository.GetAll()).andReturn(klients);
+        replay(klientRepository);
+        assertEquals(true,klientRepository.GetAll().contains(klient2));
+    }
+
+    @Test
+    void GetAllReturnsEmptyListWhenNoKlient(){
+        expect(klientRepository.GetAll()).andReturn(new ArrayList<>());
+        replay(klientRepository);
+
+        assertEquals(0,klientRepository.GetAll().size());
+    }
+    @Test
+    void GetKlientreturnsKlientType(){
+        expect(klientRepository.GetKlient(1)).andReturn(new Klient(1,"Adam","Jodłowski","ajodl@o2.pl"));
+        replay(klientRepository);
+
+        assertThat(klientRepository.GetKlient(1)).isInstanceOf(Klient.class);
+    }
 }
