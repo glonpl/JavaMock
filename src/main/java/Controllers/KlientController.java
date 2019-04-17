@@ -25,6 +25,7 @@ public class KlientController {
             return klientRepository.AddKlient(klient);
         }
         return false;}
+
     public boolean DeleteKlient (Klient klient) {
         if (validator.KlientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
