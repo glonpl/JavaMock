@@ -1,8 +1,6 @@
 package Controllers;
-
 import Interfaces.IKlient;
 import Models.Klient;
-
 import java.util.List;
 
 public class KlientController {
