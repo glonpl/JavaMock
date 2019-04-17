@@ -67,7 +67,7 @@ public class ZamowienieController {
     }
 
     public boolean UpdateZamowienie(Zamowienie zamowienie){
-        if(zamowienie == null){
+        if(validation.ZamowienieNull(zamowienie)){
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
