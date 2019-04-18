@@ -1,10 +1,8 @@
-package Models;
-
-import java.util.List;
+package models;
 
 public class Zamowienie {
     public int Id;
- Klient klient;
+    public Klient klient;
 
 
     public Zamowienie(int id, Klient klient) {

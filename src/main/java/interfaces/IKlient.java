@@ -1,5 +1,7 @@
-package Interfaces;
-import Models.Klient;
+package interfaces;
+
+import models.Klient;
+
 import java.util.List;
 
 public interface IKlient {

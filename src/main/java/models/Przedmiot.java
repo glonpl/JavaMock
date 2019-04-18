@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Przedmiot {
     public int Id;

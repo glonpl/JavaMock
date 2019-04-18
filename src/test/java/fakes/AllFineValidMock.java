@@ -1,9 +1,9 @@
-package Fakes;
+package fakes;
 
-import Models.Klient;
-import Models.Przedmiot;
-import Models.Zamowienie;
-import Validations.IValidation;
+import models.Klient;
+import models.Przedmiot;
+import models.Zamowienie;
+import validations.IValidation;
 
 public class AllFineValidMock implements IValidation {
     @Override

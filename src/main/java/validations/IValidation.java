@@ -1,8 +1,8 @@
-package Validations;
+package validations;
 
-import Models.Klient;
-import Models.Przedmiot;
-import Models.Zamowienie;
+import models.Klient;
+import models.Przedmiot;
+import models.Zamowienie;
 
 public interface IValidation {
     boolean KlientValid(Klient klient);

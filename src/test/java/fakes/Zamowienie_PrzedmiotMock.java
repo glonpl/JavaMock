@@ -1,9 +1,9 @@
-package Fakes;
+package fakes;
 
-import Interfaces.IZamowienie_Przedmiot;
-import Models.Przedmiot;
-import Models.Zamowienie;
-import Models.Zamowienie_Przedmiot;
+import interfaces.IZamowienie_Przedmiot;
+import models.Przedmiot;
+import models.Zamowienie;
+import models.Zamowienie_Przedmiot;
 
 import java.util.ArrayList;
 import java.util.List;

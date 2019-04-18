@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Klient {
     public int Id;
@@ -6,8 +6,8 @@ public class Klient {
     public String Nazwisko;
     public String Email;
 
-    public Klient(int id,String imie, String nazwisko, String email) {
-        Id=id;
+    public Klient(int id, String imie, String nazwisko, String email) {
+        Id = id;
         Imie = imie;
         Nazwisko = nazwisko;
         Email = email;

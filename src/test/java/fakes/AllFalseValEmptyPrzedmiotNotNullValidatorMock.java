@@ -1,11 +1,11 @@
-package Fakes;
+package fakes;
 
-import Models.Klient;
-import Models.Przedmiot;
-import Models.Zamowienie;
-import Validations.IValidation;
+import models.Klient;
+import models.Przedmiot;
+import models.Zamowienie;
+import validations.IValidation;
 
-public class AllFalseValEmptyValidatorMock implements IValidation {
+public class AllFalseValEmptyPrzedmiotNotNullValidatorMock implements IValidation {
     @Override
     public boolean KlientValid(Klient klient) {
         return false;
@@ -23,7 +23,7 @@ public class AllFalseValEmptyValidatorMock implements IValidation {
 
     @Override
     public boolean PrzedmiotNull(Przedmiot przedmiot) {
-        return true;
+        return false;
     }
 
     @Override
