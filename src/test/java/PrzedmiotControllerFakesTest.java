@@ -88,4 +88,15 @@ public class PrzedmiotControllerFakesTest {
         assertThat(przedmiotController.DeletePrzedmiot(new  Przedmiot(1,"elo",23.33))).isIn(false);
 
     }
+    @Test
+    void DeletePrzedmiotAllFineReturnsTrue(){
+        zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
+        validator = new AllFineValidMock();
+
+        przedmiotController = new PrzedmiotController(validator,przedmiotRepository,zamowienie_przedmiot);
+        Przedmiot przedmiot=new  Przedmiot(1,"elo",23.33);
+przedmiotController.AddPrzedmiot(przedmiot);
+        assertThat(przedmiotController.DeletePrzedmiot(przedmiot)).isIn(true);
+
+    }
 }

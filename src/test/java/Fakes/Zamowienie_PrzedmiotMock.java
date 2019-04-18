@@ -5,6 +5,7 @@ import Models.Przedmiot;
 import Models.Zamowienie;
 import Models.Zamowienie_Przedmiot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Zamowienie_PrzedmiotMock implements IZamowienie_Przedmiot {
@@ -17,7 +18,7 @@ public class Zamowienie_PrzedmiotMock implements IZamowienie_Przedmiot {
     }
 
     public List<Zamowienie_Przedmiot> GetAllByPrzedmiot(Przedmiot przedmiot) {
-        return null;
+        return new ArrayList<>();
     }
 
     public boolean AddZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
@@ -25,6 +26,6 @@ public class Zamowienie_PrzedmiotMock implements IZamowienie_Przedmiot {
     }
 
     public boolean DeleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
-        return false;
+        return true;
     }
 }
