@@ -21,8 +21,12 @@ public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmi
 
     @Override
     public List<Zamowienie_Przedmiot> getAllByPrzedmiot(Przedmiot przedmiot) {
+        Zamowienie_Przedmiot zamowienie_przedmiot = new Zamowienie_Przedmiot(przedmiot.getId(), 1);
+        List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
+        zamowienie_przedmiots.add(zamowienie_przedmiot);
 
-        return new ArrayList<>();
+
+        return zamowienie_przedmiots;
     }
 
     @Override

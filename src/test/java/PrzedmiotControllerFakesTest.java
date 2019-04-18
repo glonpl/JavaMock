@@ -9,6 +9,7 @@ import validations.IValidation;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrzedmiotControllerFakesTest {
@@ -89,8 +90,10 @@ public class PrzedmiotControllerFakesTest {
         zamowienie_przedmiot = new ZamowieniePrzedmiotNullPrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
+        Przedmiot przedmiot=new Przedmiot(1, "elo", 23.33);
+        przedmiotController.addPrzedmiot(przedmiot);
 
-        assertThat(przedmiotController.deletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isIn(false);
+        assertFalse(przedmiotController.deletePrzedmiot(przedmiot));
 
     }
 
@@ -137,14 +140,25 @@ public class PrzedmiotControllerFakesTest {
     }
 
     @Test
-    void updateprzedmiotValidPrzedmiotReturnsTrue() {
+    void updateprzedmiotPrzedmiotGetIdNullReturnsFalse() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.addPrzedmiot(new Przedmiot(1, "elo", 23.33))).isTrue();
+        assertThat(przedmiotController.updatePrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
 
     }
 
+    @Test
+    void updateprzedmiotAllPropperReturnsTrue() {
+        zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
+        validator = new AllFineValidMock();
 
+        przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
+        Przedmiot przedmiot = new Przedmiot(1, "elo", 23.33);
+        przedmiotController.addPrzedmiot(przedmiot);
+
+        assertThat(przedmiotController.updatePrzedmiot(przedmiot)).isTrue();
+
+    }
 }

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -184,9 +185,18 @@ public class ZamowienieControllerMockitoTest {
 
         assertThat(zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie)).isIn(false);
     }
+    @Test
+    void deletePrzedmiotFromZamowienieReturnsFalseWhenZamowienieNull() {
+        Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
+        Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(false);
+
+ assertThatThrownBy(()->zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie)).hasMessageContaining("amowienie is nul");
+    }
 
     @Test
-    void deletePrzedmiotFromZamowienieReturnsTrueWhenPrzedmiotIsInzamowienieprzedmiot() {
+    void deletePrzedmiotFromZamowienieReturnsTrueWhenPrzedmiotIsInZamowieniPprzedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
