@@ -127,7 +127,7 @@ public class ZamowienieControllerMockitoTest {
 
 
     @Test
-    void addPrzedmiotToZamowienieReturnsFalseWhenPrzedmiotIsInZamowienie_przedmiot() {
+    void addPrzedmiotToZamowienieReturnsFalseWhenPrzedmiotIsInZamowienieprzedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -140,7 +140,7 @@ public class ZamowienieControllerMockitoTest {
     }
 
     @Test
-    void addPrzedmiotToZamowienieReturnsTrueWhenPrzedmiotIsNotInZamowienie_przedmiot() {
+    void addPrzedmiotToZamowienieReturnsTrueWhenPrzedmiotIsNotInZamowienieprzedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -231,13 +231,13 @@ public class ZamowienieControllerMockitoTest {
     }
 
     @Test
-    void getAllDetailZamowienie_przedmiotReturnsNullListNull() {
+    void getAllDetailZamowieniePrzedmiotReturnsNullListNull() {
         when(zamowienie_przedmiotRepository.getAll()).thenReturn(null);
         assertNull(zamowienie_przedmiotRepository.getAll());
     }
 
     @Test
-    void getAllDetailZamowienie_przedmiotReturnsCorrectList() {
+    void getAllDetailZamowieniePrzedmiotReturnsCorrectList() {
         Zamowienie_Przedmiot zamowienie_przedmiot = new Zamowienie_Przedmiot(1, 1);
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
         zamowienie_przedmiots.add(zamowienie_przedmiot);
