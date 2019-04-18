@@ -1,4 +1,4 @@
-package Mock;
+package Fakes;
 
 import Interfaces.IZamowienie_Przedmiot;
 import Models.Przedmiot;
