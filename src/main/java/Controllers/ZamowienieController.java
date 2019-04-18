@@ -25,7 +25,8 @@ public class ZamowienieController {
         validation=_validation;
     }
     public boolean AddPrzedmiotToZamowienie(Przedmiot przedmiot, Zamowienie zamowienie){
-        if (!validation.PrzedmiotNull(przedmiot)||!validation.ZamowienieNull(zamowienie)) {
+       if ((validation.PrzedmiotNull(przedmiot))||(validation.ZamowienieNull(zamowienie))) {
+
             throw new IllegalArgumentException("Przedmiot or Zamowienie is null");
         }
         if(!zamowienie_przedmiotRepository.GetAllByPrzedmiot(przedmiot).isEmpty()){
@@ -88,7 +89,7 @@ public class ZamowienieController {
             throw new IllegalArgumentException("Klient is null");
         }
 
-        return zamowienieRepository.GetZamowienieFromKlient(klient.getId());
+        return zamowienieRepository.GetZamowienieFromKlient(klient);
 
     }
 }

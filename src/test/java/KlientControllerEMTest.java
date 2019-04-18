@@ -87,7 +87,7 @@ public class KlientControllerEMTest {
         expect(klientRepository.GetKlient(1)).andReturn(klient);
         expect(klientRepository.DeleteKlient(klient)).andReturn(true);
         replay(klientRepository);
-        expect(zamowienieRepository.GetZamowienieFromKlient(1)).andReturn(zamowienia);
+        expect(zamowienieRepository.GetZamowienieFromKlient(klient)).andReturn(zamowienia);
         replay(zamowienieRepository);
         assertFalse(klientController.DeleteKlient(klient));
     }
@@ -100,7 +100,7 @@ public class KlientControllerEMTest {
         expect(klientRepository.GetKlient(1)).andReturn(klient);
         expect(klientRepository.DeleteKlient(klient)).andReturn(true);
         replay(klientRepository);
-        expect(zamowienieRepository.GetZamowienieFromKlient(1)).andReturn(new ArrayList<>());
+        expect(zamowienieRepository.GetZamowienieFromKlient(klient)).andReturn(new ArrayList<>());
         replay(zamowienieRepository);
         assertThat(klientController.DeleteKlient(klient)).isNotEqualTo(false);
     }

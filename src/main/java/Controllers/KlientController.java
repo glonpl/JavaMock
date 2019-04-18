@@ -33,7 +33,7 @@ public class KlientController {
         if (klientRepository.GetKlient(klient.getId()) == null) {
             return false;
         }
-        if(!zamowienieRepository.GetZamowienieFromKlient(klient.getId()).isEmpty()){
+        if(!zamowienieRepository.GetZamowienieFromKlient(klient).isEmpty()){
             return false;
         }
         return klientRepository.DeleteKlient(klient);
