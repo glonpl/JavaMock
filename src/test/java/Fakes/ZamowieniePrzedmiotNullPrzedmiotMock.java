@@ -5,6 +5,7 @@ import Models.Przedmiot;
 import Models.Zamowienie;
 import Models.Zamowienie_Przedmiot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmiot {
@@ -20,7 +21,8 @@ public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmi
 
     @Override
     public List<Zamowienie_Przedmiot> GetAllByPrzedmiot(Przedmiot przedmiot) {
-        return null;
+
+            return new ArrayList<>();
     }
 
     @Override
