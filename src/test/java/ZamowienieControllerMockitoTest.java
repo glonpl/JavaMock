@@ -37,18 +37,18 @@ public class ZamowienieControllerMockitoTest {
 
     //crud
     @Test
-    void AddzamowienieNullThrowsException() {
+    void addzamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         when(validator.zamowienieNull(zamowienie)).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.AddZamowienie(zamowienie), "Zamowienie is null");
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.addZamowienie(zamowienie), "Zamowienie is null");
     }
 
     @Test
-    void AddZamowienieProperReturnsTrue() {
+    void addZamowienieProperReturnsTrue() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         when(validator.zamowienieNull(zamowienie)).thenReturn(false);
-        when(zamowienieRepository.AddZamowienie(zamowienie)).thenReturn(true);
-        assertThat(zamowienieController.AddZamowienie(zamowienie)).isTrue();
+        when(zamowienieRepository.addZamowienie(zamowienie)).thenReturn(true);
+        assertThat(zamowienieController.addZamowienie(zamowienie)).isTrue();
     }
 
     @Test
@@ -147,7 +147,7 @@ public class ZamowienieControllerMockitoTest {
 
 
         when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
-        when(zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
+        when(zamowienie_przedmiotRepository.addZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
 
         assertTrue(zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie));
     }
@@ -159,7 +159,7 @@ public class ZamowienieControllerMockitoTest {
         when(validator.przedmiotNull(przedmiot)).thenReturn(true);
         when(validator.zamowienieNull(zamowienie)).thenReturn(true);
 
-        when(zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
+        when(zamowienie_przedmiotRepository.addZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
         assertThrows(IllegalArgumentException.class, () -> zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie));
     }
 
@@ -207,7 +207,7 @@ public class ZamowienieControllerMockitoTest {
         Klient klient = new Klient(1, "adam", "małysz", "elo@cos.pl");
         when(validator.klientNull(klient)).thenReturn(true);
 
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.AllZamowienieByKlient(klient));
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.allZamowienieByKlient(klient));
     }
 
     @Test
@@ -215,7 +215,7 @@ public class ZamowienieControllerMockitoTest {
         Klient klient = new Klient(1, "adam", "małysz", "elo@cos.pl");
         List<Zamowienie> zamowienies = new ArrayList<>();
         when(zamowienieRepository.getZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
-        assertThat(zamowienieController.AllZamowienieByKlient(klient).size()).isIn(0);
+        assertThat(zamowienieController.allZamowienieByKlient(klient).size()).isIn(0);
     }
 
     @Test
@@ -227,7 +227,7 @@ public class ZamowienieControllerMockitoTest {
 
         when(zamowienieRepository.getZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
 
-        assertThat(zamowienieController.AllZamowienieByKlient(klient).size()).isEqualTo(1);
+        assertThat(zamowienieController.allZamowienieByKlient(klient).size()).isEqualTo(1);
     }
 
     @Test

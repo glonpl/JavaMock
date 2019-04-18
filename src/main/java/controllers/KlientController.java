@@ -22,31 +22,31 @@ public class KlientController {
         return klientRepository.getAll();
     }
 
-    public Klient GetKlient(int klientId) {
-        return klientRepository.GetKlient(klientId);
+    public Klient getKlient(int klientId) {
+        return klientRepository.getKlient(klientId);
     }
 
-    public boolean AddKlient(Klient klient) {
+    public boolean addKlient(Klient klient) {
         if (validator.klientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
         if (validator.klientValid(klient)) {
-            return klientRepository.AddKlient(klient);
+            return klientRepository.addKlient(klient);
         }
         return false;
     }
 
-    public boolean DeleteKlient(Klient klient) {
+    public boolean deleteKlient(Klient klient) {
         if (validator.klientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
-        if (klientRepository.GetKlient(klient.getId()) == null) {
+        if (klientRepository.getKlient(klient.getId()) == null) {
             return false;
         }
         if (!zamowienieRepository.getZamowienieFromKlient(klient).isEmpty()) {
             return false;
         }
-        return klientRepository.DeleteKlient(klient);
+        return klientRepository.deleteKlient(klient);
     }
 
     public boolean updateKlient(Klient klient) {
@@ -56,7 +56,7 @@ public class KlientController {
         if (!validator.klientValid(klient)) {
             return false;
         }
-        if (klientRepository.GetKlient(klient.getId()) == null) {
+        if (klientRepository.getKlient(klient.getId()) == null) {
             return false;
         }
         return klientRepository.updateKlient(klient);

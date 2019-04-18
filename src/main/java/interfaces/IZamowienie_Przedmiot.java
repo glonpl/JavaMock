@@ -13,7 +13,7 @@ public interface IZamowienie_Przedmiot {
 
     List<Zamowienie_Przedmiot> getAllByPrzedmiot(Przedmiot przedmiot);
 
-    boolean AddZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
+    boolean addZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
 
     boolean deleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
 }

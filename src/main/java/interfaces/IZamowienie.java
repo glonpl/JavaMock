@@ -12,7 +12,7 @@ public interface IZamowienie {
 
     List<Zamowienie> getZamowienieFromKlient(Klient klient);
 
-    boolean AddZamowienie(Zamowienie zamowienie);
+    boolean addZamowienie(Zamowienie zamowienie);
 
     boolean deleteZamowienie(Zamowienie zamowienie);
 

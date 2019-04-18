@@ -8,11 +8,11 @@ public interface IKlient {
 
     List<Klient> getAll();
 
-    Klient GetKlient(int klientId);
+    Klient getKlient(int klientId);
 
-    boolean AddKlient(Klient klient);
+    boolean addKlient(Klient klient);
 
-    boolean DeleteKlient(Klient klient);
+    boolean deleteKlient(Klient klient);
 
     boolean updateKlient(Klient klient);
 }

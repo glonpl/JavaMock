@@ -26,7 +26,7 @@ public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmi
     }
 
     @Override
-    public boolean AddZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
+    public boolean addZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
         return false;
     }
 
