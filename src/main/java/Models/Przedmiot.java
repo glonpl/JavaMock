@@ -20,19 +20,4 @@ public class Przedmiot {
         Id = id;
     }
 
-    public String getNazwa() {
-        return Nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        Nazwa = nazwa;
-    }
-
-    public double getWartosc() {
-        return Wartosc;
-    }
-
-    public void setWartosc(double wartosc) {
-        Wartosc = wartosc;
-    }
 }

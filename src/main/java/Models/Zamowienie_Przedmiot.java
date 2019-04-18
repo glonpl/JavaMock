@@ -10,9 +10,6 @@ public class Zamowienie_Przedmiot {
         PrzedmiotID = przedmiotID;
     }
 
-    public int getZamowienieID() {
-        return ZamowienieID;
-    }
 
     public int getPrzedmiotID() {
         return PrzedmiotID;

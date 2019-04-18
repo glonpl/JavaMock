@@ -17,31 +17,5 @@ public class Klient {
         return Id;
     }
 
-    public void setId(int id) {
-        Id = id;
-    }
 
-    public String getImie() {
-        return Imie;
-    }
-
-    public void setImie(String imie) {
-        Imie = imie;
-    }
-
-    public String getNazwisko() {
-        return Nazwisko;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        Nazwisko = nazwisko;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
 }
