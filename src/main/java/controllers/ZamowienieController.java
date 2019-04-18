@@ -30,7 +30,7 @@ public class ZamowienieController {
 
             throw new IllegalArgumentException("Przedmiot or Zamowienie is null");
         }
-        if (!zamowienie_przedmiotRepository.GetAllByPrzedmiot(przedmiot).isEmpty()) {
+        if (!zamowienie_przedmiotRepository.getAllByPrzedmiot(przedmiot).isEmpty()) {
             return false;
         }
 
@@ -47,11 +47,11 @@ public class ZamowienieController {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
-        if (zamowienie_przedmiotRepository.GetAllByPrzedmiot(przedmiot).isEmpty()) {
+        if (zamowienie_przedmiotRepository.getAllByPrzedmiot(przedmiot).isEmpty()) {
             return false;
         }
 
-        List<Zamowienie_Przedmiot> przedmiotInZamowienie = zamowienie_przedmiotRepository.GetAllByZamowienie(zamowienie);
+        List<Zamowienie_Przedmiot> przedmiotInZamowienie = zamowienie_przedmiotRepository.getAllByZamowienie(zamowienie);
         for (Zamowienie_Przedmiot zamowieniePrzedmiot : przedmiotInZamowienie) {
             if (zamowieniePrzedmiot.getPrzedmiotID() == przedmiot.getId()) {
                 zamowienie_przedmiotRepository.DeleteZamowieniePrzedmiot(zamowieniePrzedmiot);
@@ -69,12 +69,12 @@ public class ZamowienieController {
         return zamowienieRepository.AddZamowienie(zamowienie);
     }
 
-    public boolean UpdateZamowienie(Zamowienie zamowienie) {
+    public boolean updateZamowienie(Zamowienie zamowienie) {
         if (validation.ZamowienieNull(zamowienie)) {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
-        return zamowienieRepository.UpdateZamowienie(zamowienie);
+        return zamowienieRepository.updateZamowienie(zamowienie);
     }
 
     public boolean DeleteZamowienie(Zamowienie zamowienie) {

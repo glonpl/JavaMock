@@ -52,26 +52,26 @@ public class ZamowienieControllerMockitoTest {
     }
 
     @Test
-    void UpdateZamowienieNullThrowsException() {
+    void updateZamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.UpdateZamowienie(zamowienie), "Zamowienie is null");
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.updateZamowienie(zamowienie), "Zamowienie is null");
     }
 
     @Test
-    void UpdateZamowienieProperReturnsTrue() {
+    void updateZamowienieProperReturnsTrue() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
-        when(zamowienieRepository.UpdateZamowienie(zamowienie)).thenReturn(true);
-        assertThat(zamowienieController.UpdateZamowienie(zamowienie)).isTrue();
+        when(zamowienieRepository.updateZamowienie(zamowienie)).thenReturn(true);
+        assertThat(zamowienieController.updateZamowienie(zamowienie)).isTrue();
     }
 
     @Test
-    void UpdateZamowienieInProperReturnsFalse() {
+    void updateZamowienieInProperReturnsFalse() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
-        when(zamowienieRepository.UpdateZamowienie(zamowienie)).thenReturn(false);
-        assertThat(zamowienieController.UpdateZamowienie(zamowienie)).isNotEqualTo(true);
+        when(zamowienieRepository.updateZamowienie(zamowienie)).thenReturn(false);
+        assertThat(zamowienieController.updateZamowienie(zamowienie)).isNotEqualTo(true);
     }
 
     @Test
@@ -134,7 +134,7 @@ public class ZamowienieControllerMockitoTest {
 
         zamowienie_przedmiots.add(new Zamowienie_Przedmiot(1, 1));
 
-        when(zamowienie_przedmiotRepository.GetAllByPrzedmiot(przedmiot)).thenReturn(zamowienie_przedmiots);
+        when(zamowienie_przedmiotRepository.getAllByPrzedmiot(przedmiot)).thenReturn(zamowienie_przedmiots);
 
         assertFalse(zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie));
     }
@@ -146,7 +146,7 @@ public class ZamowienieControllerMockitoTest {
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
 
 
-        when(zamowienie_przedmiotRepository.GetAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
+        when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
         when(zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
 
         assertTrue(zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie));
@@ -180,7 +180,7 @@ public class ZamowienieControllerMockitoTest {
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
 
 
-        when(zamowienie_przedmiotRepository.GetAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
+        when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
 
         assertThat(zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie)).isIn(false);
     }
@@ -193,8 +193,8 @@ public class ZamowienieControllerMockitoTest {
         zamowienie_przedmiots.add(new Zamowienie_Przedmiot(1, 1));
 
 
-        when(zamowienie_przedmiotRepository.GetAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
-        when(zamowienie_przedmiotRepository.GetAllByZamowienie(any(Zamowienie.class))).thenReturn(zamowienie_przedmiots);
+        when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
+        when(zamowienie_przedmiotRepository.getAllByZamowienie(any(Zamowienie.class))).thenReturn(zamowienie_przedmiots);
         when(zamowienie_przedmiotRepository.DeleteZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
 
         assertTrue(zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie));
@@ -232,8 +232,8 @@ public class ZamowienieControllerMockitoTest {
 
     @Test
     void getAllDetailZamowienie_przedmiotReturnsNullListNull() {
-        when(zamowienie_przedmiotRepository.GetAll()).thenReturn(null);
-        assertNull(zamowienie_przedmiotRepository.GetAll());
+        when(zamowienie_przedmiotRepository.getAll()).thenReturn(null);
+        assertNull(zamowienie_przedmiotRepository.getAll());
     }
 
     @Test
@@ -241,14 +241,14 @@ public class ZamowienieControllerMockitoTest {
         Zamowienie_Przedmiot zamowienie_przedmiot = new Zamowienie_Przedmiot(1, 1);
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
         zamowienie_przedmiots.add(zamowienie_przedmiot);
-        when(zamowienie_przedmiotRepository.GetAll()).thenReturn(zamowienie_przedmiots);
-        assertThat(zamowienie_przedmiotRepository.GetAll().size()).isEqualTo(1);
+        when(zamowienie_przedmiotRepository.getAll()).thenReturn(zamowienie_przedmiots);
+        assertThat(zamowienie_przedmiotRepository.getAll().size()).isEqualTo(1);
     }
 
     @Test
     void getAllZamowienieReturnsNullWhenZamowienieEmpty() {
-        when(zamowienieRepository.GetAll()).thenReturn(null);
-        assertNull(zamowienieRepository.GetAll());
+        when(zamowienieRepository.getAll()).thenReturn(null);
+        assertNull(zamowienieRepository.getAll());
     }
 
     @Test
@@ -265,8 +265,8 @@ public class ZamowienieControllerMockitoTest {
         zamowienies.add(zamowienie3);
 
 
-        when(zamowienieRepository.GetAll()).thenReturn(zamowienies);
-        assertThat(zamowienieRepository.GetAll().size()).isEqualTo(3);
+        when(zamowienieRepository.getAll()).thenReturn(zamowienies);
+        assertThat(zamowienieRepository.getAll().size()).isEqualTo(3);
     }
 
     @Test

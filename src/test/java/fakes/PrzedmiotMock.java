@@ -13,7 +13,7 @@ public class PrzedmiotMock implements IPrzedmiot {
     Map<Integer, Przedmiot> przedmiots = new HashMap<>();
 
     @Override
-    public List<Przedmiot> GetAll() {
+    public List<Przedmiot> getAll() {
         return new ArrayList<>(przedmiots.values());
     }
 
@@ -47,7 +47,7 @@ public class PrzedmiotMock implements IPrzedmiot {
 
 
     @Override
-    public boolean UpdatePrzedmiot(Przedmiot przedmiot) {
+    public boolean updatePrzedmiot(Przedmiot przedmiot) {
         if (przedmiot == null) {
             throw new NullPointerException();
         }

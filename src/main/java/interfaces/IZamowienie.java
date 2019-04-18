@@ -6,7 +6,7 @@ import models.Zamowienie;
 import java.util.List;
 
 public interface IZamowienie {
-    List<Zamowienie> GetAll();
+    List<Zamowienie> getAll();
 
     Zamowienie GetZamowienie(int zamowienieId);
 
@@ -16,5 +16,5 @@ public interface IZamowienie {
 
     boolean DeleteZamowienie(Zamowienie zamowienie);
 
-    boolean UpdateZamowienie(Zamowienie zamowienie);
+    boolean updateZamowienie(Zamowienie zamowienie);
 }

@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Zamowienie_PrzedmiotMock implements IZamowienie_Przedmiot {
-    public List<Zamowienie_Przedmiot> GetAll() {
+    public List<Zamowienie_Przedmiot> getAll() {
         return null;
     }
 
-    public List<Zamowienie_Przedmiot> GetAllByZamowienie(Zamowienie zamowienie) {
+    public List<Zamowienie_Przedmiot> getAllByZamowienie(Zamowienie zamowienie) {
         return null;
     }
 
-    public List<Zamowienie_Przedmiot> GetAllByPrzedmiot(Przedmiot przedmiot) {
+    public List<Zamowienie_Przedmiot> getAllByPrzedmiot(Przedmiot przedmiot) {
         return new ArrayList<>();
     }
 

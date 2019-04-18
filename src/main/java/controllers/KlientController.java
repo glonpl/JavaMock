@@ -18,8 +18,8 @@ public class KlientController {
         validator = _validator;
     }
 
-    public List<Klient> GetAll() {
-        return klientRepository.GetAll();
+    public List<Klient> getAll() {
+        return klientRepository.getAll();
     }
 
     public Klient GetKlient(int klientId) {
@@ -49,7 +49,7 @@ public class KlientController {
         return klientRepository.DeleteKlient(klient);
     }
 
-    public boolean UpdateKlient(Klient klient) {
+    public boolean updateKlient(Klient klient) {
         if (validator.KlientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
@@ -59,7 +59,7 @@ public class KlientController {
         if (klientRepository.GetKlient(klient.getId()) == null) {
             return false;
         }
-        return klientRepository.UpdateKlient(klient);
+        return klientRepository.updateKlient(klient);
     }
 
 

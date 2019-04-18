@@ -31,7 +31,7 @@ public class PrzedmiotController {
         return przedmiotRepository.AddPrzedmiot(przedmiot);
     }
 
-    public boolean UpdatePrzedmiot(Przedmiot przedmiot) {
+    public boolean updatePrzedmiot(Przedmiot przedmiot) {
 
         if (validator.PrzedmiotNull(przedmiot)) {
             throw new IllegalArgumentException("przedmiot is null");
@@ -45,7 +45,7 @@ public class PrzedmiotController {
             return false;
         }
 
-        return przedmiotRepository.UpdatePrzedmiot(przedmiot);
+        return przedmiotRepository.updatePrzedmiot(przedmiot);
     }
 
     public boolean DeletePrzedmiot(Przedmiot przedmiot) {
@@ -57,7 +57,7 @@ public class PrzedmiotController {
             return false;
         }
 
-        if (!zamowieniePrzedmiotRepository.GetAllByPrzedmiot(przedmiot).isEmpty()) {
+        if (!zamowieniePrzedmiotRepository.getAllByPrzedmiot(przedmiot).isEmpty()) {
             return false;
         }
 

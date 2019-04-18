@@ -5,7 +5,7 @@ import models.Przedmiot;
 import java.util.List;
 
 public interface IPrzedmiot {
-    List<Przedmiot> GetAll();
+    List<Przedmiot> getAll();
 
     Przedmiot GetPrzedmiot(int przedmiotId);
 
@@ -13,5 +13,5 @@ public interface IPrzedmiot {
 
     boolean DeletePrzedmiot(Przedmiot przedmiot);
 
-    boolean UpdatePrzedmiot(Przedmiot przedmiot);
+    boolean updatePrzedmiot(Przedmiot przedmiot);
 }

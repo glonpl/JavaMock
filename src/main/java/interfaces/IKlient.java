@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IKlient {
 
-    List<Klient> GetAll();
+    List<Klient> getAll();
 
     Klient GetKlient(int klientId);
 
@@ -14,5 +14,5 @@ public interface IKlient {
 
     boolean DeleteKlient(Klient klient);
 
-    boolean UpdateKlient(Klient klient);
+    boolean updateKlient(Klient klient);
 }

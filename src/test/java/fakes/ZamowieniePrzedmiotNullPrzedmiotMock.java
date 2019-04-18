@@ -10,17 +10,17 @@ import java.util.List;
 
 public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmiot {
     @Override
-    public List<Zamowienie_Przedmiot> GetAll() {
+    public List<Zamowienie_Przedmiot> getAll() {
         return null;
     }
 
     @Override
-    public List<Zamowienie_Przedmiot> GetAllByZamowienie(Zamowienie zamowienie) {
+    public List<Zamowienie_Przedmiot> getAllByZamowienie(Zamowienie zamowienie) {
         return null;
     }
 
     @Override
-    public List<Zamowienie_Przedmiot> GetAllByPrzedmiot(Przedmiot przedmiot) {
+    public List<Zamowienie_Przedmiot> getAllByPrzedmiot(Przedmiot przedmiot) {
 
         return new ArrayList<>();
     }
