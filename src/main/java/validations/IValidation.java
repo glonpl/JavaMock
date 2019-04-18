@@ -5,13 +5,13 @@ import models.Przedmiot;
 import models.Zamowienie;
 
 public interface IValidation {
-    boolean KlientValid(Klient klient);
+    boolean klientValid(Klient klient);
 
-    boolean KlientNull(Klient klient);
+    boolean klientNull(Klient klient);
 
-    boolean PrzedmiotValid(Przedmiot przedmiot);
+    boolean przedmiotValid(Przedmiot przedmiot);
 
-    boolean PrzedmiotNull(Przedmiot przedmiot);
+    boolean przedmiotNull(Przedmiot przedmiot);
 
-    boolean ZamowienieNull(Zamowienie zamowienie);
+    boolean zamowienieNull(Zamowienie zamowienie);
 }

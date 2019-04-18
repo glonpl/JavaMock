@@ -27,33 +27,33 @@ public class KlientController {
     }
 
     public boolean AddKlient(Klient klient) {
-        if (validator.KlientNull(klient)) {
+        if (validator.klientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
-        if (validator.KlientValid(klient)) {
+        if (validator.klientValid(klient)) {
             return klientRepository.AddKlient(klient);
         }
         return false;
     }
 
     public boolean DeleteKlient(Klient klient) {
-        if (validator.KlientNull(klient)) {
+        if (validator.klientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
         if (klientRepository.GetKlient(klient.getId()) == null) {
             return false;
         }
-        if (!zamowienieRepository.GetZamowienieFromKlient(klient).isEmpty()) {
+        if (!zamowienieRepository.getZamowienieFromKlient(klient).isEmpty()) {
             return false;
         }
         return klientRepository.DeleteKlient(klient);
     }
 
     public boolean updateKlient(Klient klient) {
-        if (validator.KlientNull(klient)) {
+        if (validator.klientNull(klient)) {
             throw new IllegalArgumentException("klient is null");
         }
-        if (!validator.KlientValid(klient)) {
+        if (!validator.klientValid(klient)) {
             return false;
         }
         if (klientRepository.GetKlient(klient.getId()) == null) {

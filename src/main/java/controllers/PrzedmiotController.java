@@ -18,42 +18,42 @@ public class PrzedmiotController {
         zamowieniePrzedmiotRepository = _zamowieniePRepository;
     }
 
-    public boolean AddPrzedmiot(Przedmiot przedmiot) {
+    public boolean addPrzedmiot(Przedmiot przedmiot) {
 
-        if (validator.PrzedmiotNull(przedmiot)) {
+        if (validator.przedmiotNull(przedmiot)) {
             throw new IllegalArgumentException("przedmiot is null");
         }
 
-        if (!validator.PrzedmiotValid(przedmiot)) {
+        if (!validator.przedmiotValid(przedmiot)) {
             return false;
         }
 
-        return przedmiotRepository.AddPrzedmiot(przedmiot);
+        return przedmiotRepository.addPrzedmiot(przedmiot);
     }
 
     public boolean updatePrzedmiot(Przedmiot przedmiot) {
 
-        if (validator.PrzedmiotNull(przedmiot)) {
+        if (validator.przedmiotNull(przedmiot)) {
             throw new IllegalArgumentException("przedmiot is null");
         }
 
-        if (!validator.PrzedmiotValid(przedmiot)) {
+        if (!validator.przedmiotValid(przedmiot)) {
             return false;
         }
 
-        if (przedmiotRepository.GetPrzedmiot(przedmiot.getId()) == null) {
+        if (przedmiotRepository.getPrzedmiot(przedmiot.getId()) == null) {
             return false;
         }
 
         return przedmiotRepository.updatePrzedmiot(przedmiot);
     }
 
-    public boolean DeletePrzedmiot(Przedmiot przedmiot) {
-        if (validator.PrzedmiotNull(przedmiot)) {
+    public boolean deletePrzedmiot(Przedmiot przedmiot) {
+        if (validator.przedmiotNull(przedmiot)) {
             throw new IllegalArgumentException("przedmiot is null");
         }
 
-        if (przedmiotRepository.GetPrzedmiot(przedmiot.getId()) == null) {
+        if (przedmiotRepository.getPrzedmiot(przedmiot.getId()) == null) {
             return false;
         }
 
@@ -61,7 +61,7 @@ public class PrzedmiotController {
             return false;
         }
 
-        return przedmiotRepository.DeletePrzedmiot(przedmiot);
+        return przedmiotRepository.deletePrzedmiot(przedmiot);
     }
 
 

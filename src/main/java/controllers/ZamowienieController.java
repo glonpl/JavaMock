@@ -25,8 +25,8 @@ public class ZamowienieController {
         validation = _validation;
     }
 
-    public boolean AddPrzedmiotToZamowienie(Przedmiot przedmiot, Zamowienie zamowienie) {
-        if ((validation.PrzedmiotNull(przedmiot)) || (validation.ZamowienieNull(zamowienie))) {
+    public boolean addPrzedmiotToZamowienie(Przedmiot przedmiot, Zamowienie zamowienie) {
+        if ((validation.przedmiotNull(przedmiot)) || (validation.zamowienieNull(zamowienie))) {
 
             throw new IllegalArgumentException("Przedmiot or Zamowienie is null");
         }
@@ -38,12 +38,12 @@ public class ZamowienieController {
         return zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(zamowienie_przedmiot);
     }
 
-    public boolean DeletePrzedmiotFromZamowienie(Przedmiot przedmiot, Zamowienie zamowienie) {
-        if (validation.PrzedmiotNull(przedmiot)) {
+    public boolean deletePrzedmiotFromZamowienie(Przedmiot przedmiot, Zamowienie zamowienie) {
+        if (validation.przedmiotNull(przedmiot)) {
             throw new IllegalArgumentException("Przedmiot is null");
         }
 
-        if (validation.ZamowienieNull(zamowienie)) {
+        if (validation.zamowienieNull(zamowienie)) {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
@@ -54,7 +54,7 @@ public class ZamowienieController {
         List<Zamowienie_Przedmiot> przedmiotInZamowienie = zamowienie_przedmiotRepository.getAllByZamowienie(zamowienie);
         for (Zamowienie_Przedmiot zamowieniePrzedmiot : przedmiotInZamowienie) {
             if (zamowieniePrzedmiot.getPrzedmiotID() == przedmiot.getId()) {
-                zamowienie_przedmiotRepository.DeleteZamowieniePrzedmiot(zamowieniePrzedmiot);
+                zamowienie_przedmiotRepository.deleteZamowieniePrzedmiot(zamowieniePrzedmiot);
             }
         }
 
@@ -62,7 +62,7 @@ public class ZamowienieController {
     }
 
     public boolean AddZamowienie(Zamowienie zamowienie) {
-        if (validation.ZamowienieNull(zamowienie)) {
+        if (validation.zamowienieNull(zamowienie)) {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
@@ -70,28 +70,28 @@ public class ZamowienieController {
     }
 
     public boolean updateZamowienie(Zamowienie zamowienie) {
-        if (validation.ZamowienieNull(zamowienie)) {
+        if (validation.zamowienieNull(zamowienie)) {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
         return zamowienieRepository.updateZamowienie(zamowienie);
     }
 
-    public boolean DeleteZamowienie(Zamowienie zamowienie) {
-        if (validation.ZamowienieNull(zamowienie)) {
+    public boolean deleteZamowienie(Zamowienie zamowienie) {
+        if (validation.zamowienieNull(zamowienie)) {
             throw new IllegalArgumentException("Zamowienie is null");
         }
 
-        return zamowienieRepository.DeleteZamowienie(zamowienie);
+        return zamowienieRepository.deleteZamowienie(zamowienie);
     }
 
 
     public List<Zamowienie> AllZamowienieByKlient(Klient klient) {
-        if (validation.KlientNull(klient)) {
+        if (validation.klientNull(klient)) {
             throw new IllegalArgumentException("Klient is null");
         }
 
-        return zamowienieRepository.GetZamowienieFromKlient(klient);
+        return zamowienieRepository.getZamowienieFromKlient(klient);
 
     }
 }

@@ -31,7 +31,7 @@ public class ZamowieniePrzedmiotNullPrzedmiotMock implements IZamowienie_Przedmi
     }
 
     @Override
-    public boolean DeleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
+    public boolean deleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
         return false;
     }
 }

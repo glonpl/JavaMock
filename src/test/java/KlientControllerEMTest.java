@@ -34,7 +34,7 @@ public class KlientControllerEMTest {
     //adding
     @Test
     void AddClientNullThrowsException() {
-        expect(validator.KlientNull(null)).andReturn(true);
+        expect(validator.klientNull(null)).andReturn(true);
         replay(validator);
         assertThrows(IllegalArgumentException.class, () -> klientController.AddKlient(null), "klient is null");
     }
@@ -42,8 +42,8 @@ public class KlientControllerEMTest {
     @Test
     void AddClientInvalidReturnsFalse() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
-        expect(validator.KlientNull(klient)).andReturn(false);
-        expect(validator.KlientValid(klient)).andReturn(false);
+        expect(validator.klientNull(klient)).andReturn(false);
+        expect(validator.klientValid(klient)).andReturn(false);
         replay(validator);
         assertFalse(klientController.AddKlient(klient));
     }
@@ -51,8 +51,8 @@ public class KlientControllerEMTest {
     @Test
     void AddClientProperlyReturnsTrue() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
-        expect(validator.KlientNull(klient)).andReturn(false);
-        expect(validator.KlientValid(klient)).andReturn(true);
+        expect(validator.klientNull(klient)).andReturn(false);
+        expect(validator.klientValid(klient)).andReturn(true);
         replay(validator);
         expect(klientRepository.AddKlient(klient)).andReturn(true);
         replay(klientRepository);
@@ -63,7 +63,7 @@ public class KlientControllerEMTest {
     @Test
     void DeleteNullClientThrowsException() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
-        expect(validator.KlientNull(klient)).andReturn(true);
+        expect(validator.klientNull(klient)).andReturn(true);
         replay(validator);
         assertThrows(IllegalArgumentException.class, () -> klientController.DeleteKlient(klient), "Klient is null");
     }
@@ -71,7 +71,7 @@ public class KlientControllerEMTest {
     @Test
     void DeleteNonExistingClientReturnsFalse() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
-        expect(validator.KlientNull(klient)).andReturn(false);
+        expect(validator.klientNull(klient)).andReturn(false);
         replay(validator);
         expect(klientRepository.GetKlient(klient.getId())).andReturn(null);//could actually comment this two lines
         replay(klientRepository);
@@ -85,12 +85,12 @@ public class KlientControllerEMTest {
         List<Zamowienie> zamowienia = new ArrayList<>();
         zamowienia.add(zamowienie);
 
-        expect(validator.KlientNull(klient)).andReturn(false);
+        expect(validator.klientNull(klient)).andReturn(false);
         replay(validator);
         expect(klientRepository.GetKlient(1)).andReturn(klient);
         expect(klientRepository.DeleteKlient(klient)).andReturn(true);
         replay(klientRepository);
-        expect(zamowienieRepository.GetZamowienieFromKlient(klient)).andReturn(zamowienia);
+        expect(zamowienieRepository.getZamowienieFromKlient(klient)).andReturn(zamowienia);
         replay(zamowienieRepository);
         assertFalse(klientController.DeleteKlient(klient));
     }
@@ -99,12 +99,12 @@ public class KlientControllerEMTest {
     void DeleteClientProperlyReturnsNotFalse() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
 
-        expect(validator.KlientNull(klient)).andReturn(false);
+        expect(validator.klientNull(klient)).andReturn(false);
         replay(validator);
         expect(klientRepository.GetKlient(1)).andReturn(klient);
         expect(klientRepository.DeleteKlient(klient)).andReturn(true);
         replay(klientRepository);
-        expect(zamowienieRepository.GetZamowienieFromKlient(klient)).andReturn(new ArrayList<>());
+        expect(zamowienieRepository.getZamowienieFromKlient(klient)).andReturn(new ArrayList<>());
         replay(zamowienieRepository);
         assertThat(klientController.DeleteKlient(klient)).isNotEqualTo(false);
     }
@@ -112,7 +112,7 @@ public class KlientControllerEMTest {
     //update
     @Test
     void updateNullClientThrowsException() {
-        expect(validator.KlientNull(null)).andReturn(true);
+        expect(validator.klientNull(null)).andReturn(true);
         replay(validator);
         assertThrows(IllegalArgumentException.class, () -> klientController.updateKlient(null), "Klient is null");
     }
@@ -121,8 +121,8 @@ public class KlientControllerEMTest {
     void updateInvalidClientReturnsFalse() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
 
-        expect(validator.KlientNull(klient)).andReturn(false);
-        expect(validator.KlientValid(klient)).andReturn(false);
+        expect(validator.klientNull(klient)).andReturn(false);
+        expect(validator.klientValid(klient)).andReturn(false);
         replay(validator);
         assertFalse(klientController.updateKlient(klient));
     }
@@ -131,8 +131,8 @@ public class KlientControllerEMTest {
     void updateUnExistingClientReturnsFalse() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
 
-        expect(validator.KlientNull(klient)).andReturn(false);
-        expect(validator.KlientValid(klient)).andReturn(true);
+        expect(validator.klientNull(klient)).andReturn(false);
+        expect(validator.klientValid(klient)).andReturn(true);
         replay(validator);
         expect(klientRepository.GetKlient(klient.getId())).andReturn(null);//could actually comment this two lines
         replay(klientRepository);
@@ -144,8 +144,8 @@ public class KlientControllerEMTest {
     void updateClientReturnsTrue() {
         Klient klient = new Klient(1, "Adam", "Jodłowski", "ajodl@o2.pl");
 
-        expect(validator.KlientNull(klient)).andReturn(false);
-        expect(validator.KlientValid(klient)).andReturn(true);
+        expect(validator.klientNull(klient)).andReturn(false);
+        expect(validator.klientValid(klient)).andReturn(true);
         replay(validator);
         expect(klientRepository.GetKlient(klient.getId())).andReturn(klient);
         expect(klientRepository.updateKlient(klient)).andReturn(true);

@@ -24,90 +24,90 @@ public class PrzedmiotControllerFakesTest {
     }
 
     @Test
-    void AddPrzedmiotNullPrzedmiotThrowsException() {
+    void addprzedmiotNullPrzedmiotThrowsException() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFalseValEmptyValidatorMock();
         PrzedmiotController przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThrows(IllegalArgumentException.class, () -> przedmiotController.AddPrzedmiot(null));
+        assertThrows(IllegalArgumentException.class, () -> przedmiotController.addPrzedmiot(null));
 
     }
 
     @Test
-    void AddPrzedmiotInvalidPrzedmiotIsFalse() {
+    void addPrzedmiotInvalidPrzedmiotIsFalse() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFalseValEmptyPrzedmiotNotNullValidatorMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.AddPrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
+        assertThat(przedmiotController.addPrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
 
     }
 
     @Test
-    void AddPrzedmiotValidPrzedmiotReturnsTrue() {
+    void addprzedmiotValidPrzedmiotReturnsTrue() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.AddPrzedmiot(new Przedmiot(1, "elo", 23.33))).isTrue();
+        assertThat(przedmiotController.addPrzedmiot(new Przedmiot(1, "elo", 23.33))).isTrue();
 
     }
 
     @Test
-    void DeletePrzedmiotNullPrzedmiotThrowsException() {
+    void deleteprzedmiotNullPrzedmiotThrowsException() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFalseValEmptyValidatorMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThatThrownBy(() -> przedmiotController.DeletePrzedmiot(null)).hasMessage("przedmiot is null");
+        assertThatThrownBy(() -> przedmiotController.deletePrzedmiot(null)).hasMessage("przedmiot is null");
 
     }
 
     @Test
-    void DeletePrzedmiotNotNullInvalidPrzedmiotReturnsFalse() {
+    void deletePrzedmiotNotNullInvalidPrzedmiotReturnsFalse() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFalseValEmptyPrzedmiotNotNullValidatorMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.DeletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
+        assertThat(przedmiotController.deletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
 
     }
 
     @Test
-    void DeletePrzedmiotGetIdEqualsNullReturnsFalse() {
+    void deletePrzedmiotGetIdEqualsNullReturnsFalse() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotRepository = new PrzedmiotGetErrMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.DeletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
+        assertThat(przedmiotController.deletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isFalse();
 
     }
 
     @Test
-    void DeletePrzedmiotgetAllByPrzedmiotIsEmptyReturnsFalse() {
+    void deletePrzedmiotgetAllByPrzedmiotIsEmptyReturnsFalse() {
         zamowienie_przedmiot = new ZamowieniePrzedmiotNullPrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.DeletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isIn(false);
+        assertThat(przedmiotController.deletePrzedmiot(new Przedmiot(1, "elo", 23.33))).isIn(false);
 
     }
 
     @Test
-    void DeletePrzedmiotAllFineReturnsTrue() {
+    void deletePrzedmiotAllFineReturnsTrue() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFineValidMock();
 
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
         Przedmiot przedmiot = new Przedmiot(1, "elo", 23.33);
-        przedmiotController.AddPrzedmiot(przedmiot);
-        assertThat(przedmiotController.DeletePrzedmiot(przedmiot)).isIn(true);
+        przedmiotController.addPrzedmiot(przedmiot);
+        assertThat(przedmiotController.deletePrzedmiot(przedmiot)).isIn(true);
 
     }
 
     @Test
-    void updatePrzedmiotNullPrzedmiotThrowsException() {
+    void updateprzedmiotNullPrzedmiotThrowsException() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFalseValEmptyValidatorMock();
         PrzedmiotController przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
@@ -137,12 +137,12 @@ public class PrzedmiotControllerFakesTest {
     }
 
     @Test
-    void updatePrzedmiotValidPrzedmiotReturnsTrue() {
+    void updateprzedmiotValidPrzedmiotReturnsTrue() {
         zamowienie_przedmiot = new Zamowienie_PrzedmiotMock();
         validator = new AllFineValidMock();
         przedmiotController = new PrzedmiotController(validator, przedmiotRepository, zamowienie_przedmiot);
 
-        assertThat(przedmiotController.AddPrzedmiot(new Przedmiot(1, "elo", 23.33))).isTrue();
+        assertThat(przedmiotController.addPrzedmiot(new Przedmiot(1, "elo", 23.33))).isTrue();
 
     }
 

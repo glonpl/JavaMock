@@ -18,12 +18,12 @@ public class PrzedmiotGetErrMock implements IPrzedmiot {
     }
 
     @Override
-    public Przedmiot GetPrzedmiot(int przedmiotId) {
+    public Przedmiot getPrzedmiot(int przedmiotId) {
         return null;
     }
 
     @Override
-    public boolean AddPrzedmiot(Przedmiot przedmiot) {
+    public boolean addPrzedmiot(Przedmiot przedmiot) {
         if (przedmiots.size() == 0) {
             przedmiot.setId(0);
         } else {
@@ -35,7 +35,7 @@ public class PrzedmiotGetErrMock implements IPrzedmiot {
     }
 
     @Override
-    public boolean DeletePrzedmiot(Przedmiot przedmiot) {
+    public boolean deletePrzedmiot(Przedmiot przedmiot) {
 
         if (przedmiot == null) {
             throw new NullPointerException();

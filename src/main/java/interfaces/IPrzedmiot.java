@@ -7,11 +7,11 @@ import java.util.List;
 public interface IPrzedmiot {
     List<Przedmiot> getAll();
 
-    Przedmiot GetPrzedmiot(int przedmiotId);
+    Przedmiot getPrzedmiot(int przedmiotId);
 
-    boolean AddPrzedmiot(Przedmiot przedmiot);
+    boolean addPrzedmiot(Przedmiot przedmiot);
 
-    boolean DeletePrzedmiot(Przedmiot przedmiot);
+    boolean deletePrzedmiot(Przedmiot przedmiot);
 
     boolean updatePrzedmiot(Przedmiot przedmiot);
 }

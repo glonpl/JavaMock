@@ -15,5 +15,5 @@ public interface IZamowienie_Przedmiot {
 
     boolean AddZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
 
-    boolean DeleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
+    boolean deleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie);
 }

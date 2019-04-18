@@ -25,7 +25,7 @@ public class Zamowienie_PrzedmiotMock implements IZamowienie_Przedmiot {
         return false;
     }
 
-    public boolean DeleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
+    public boolean deleteZamowieniePrzedmiot(Zamowienie_Przedmiot zamowienie) {
         return true;
     }
 }

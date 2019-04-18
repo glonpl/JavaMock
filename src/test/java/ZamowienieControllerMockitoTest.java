@@ -37,31 +37,31 @@ public class ZamowienieControllerMockitoTest {
 
     //crud
     @Test
-    void AddZamowienieNullThrowsException() {
+    void AddzamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
         assertThrows(IllegalArgumentException.class, () -> zamowienieController.AddZamowienie(zamowienie), "Zamowienie is null");
     }
 
     @Test
     void AddZamowienieProperReturnsTrue() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
         when(zamowienieRepository.AddZamowienie(zamowienie)).thenReturn(true);
         assertThat(zamowienieController.AddZamowienie(zamowienie)).isTrue();
     }
 
     @Test
-    void updateZamowienieNullThrowsException() {
+    void updatezamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
         assertThrows(IllegalArgumentException.class, () -> zamowienieController.updateZamowienie(zamowienie), "Zamowienie is null");
     }
 
     @Test
     void updateZamowienieProperReturnsTrue() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
         when(zamowienieRepository.updateZamowienie(zamowienie)).thenReturn(true);
         assertThat(zamowienieController.updateZamowienie(zamowienie)).isTrue();
     }
@@ -69,65 +69,65 @@ public class ZamowienieControllerMockitoTest {
     @Test
     void updateZamowienieInProperReturnsFalse() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
         when(zamowienieRepository.updateZamowienie(zamowienie)).thenReturn(false);
         assertThat(zamowienieController.updateZamowienie(zamowienie)).isNotEqualTo(true);
     }
 
     @Test
-    void DeleteZamowienieNullThrowsException() {
+    void deletezamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.DeleteZamowienie(zamowienie), "Zamowienie is null");
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.deleteZamowienie(zamowienie), "Zamowienie is null");
     }
 
     @Test
-    void DeleteZamowienieProperReturnsTrue() {
+    void deleteZamowienieProperReturnsTrue() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
-        when(zamowienieRepository.DeleteZamowienie(zamowienie)).thenReturn(true);
-        assertThat(zamowienieController.DeleteZamowienie(zamowienie)).isTrue();
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
+        when(zamowienieRepository.deleteZamowienie(zamowienie)).thenReturn(true);
+        assertThat(zamowienieController.deleteZamowienie(zamowienie)).isTrue();
     }
 
     @Test
-    void DeleteZamowienieInProperReturnsFalse() {
+    void deleteZamowienieInProperReturnsFalse() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
-        when(zamowienieRepository.DeleteZamowienie(zamowienie)).thenReturn(false);
-        assertThat(zamowienieController.DeleteZamowienie(zamowienie)).isIn(false, 1);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
+        when(zamowienieRepository.deleteZamowienie(zamowienie)).thenReturn(false);
+        assertThat(zamowienieController.deleteZamowienie(zamowienie)).isIn(false, 1);
     }
 
     //add/delete przedmiot
     @Test
-    void AddPrzedmiotToZamowienieZamowienieNullThrowsException() {
+    void addPrzedmiotToZamowieniezamowienieNullThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.43);
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
-        when(validator.PrzedmiotNull(przedmiot)).thenReturn(false);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(false);
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
     }
 
     @Test
-    void AddPrzedmiotToZamowienieNullPrzedmiotPrzedmiotThrowsException() {
+    void addPrzedmiotTozamowienieNullPrzedmiotPrzedmiotThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.43);
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
-        when(validator.PrzedmiotNull(przedmiot)).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
     }
 
     @Test
-    void AddPrzedmiotToZamowienieAndPrzedmiotNullPrzedmiotThrowsException() {
+    void addPrzedmiotToZamowienieAndprzedmiotNullPrzedmiotThrowsException() {
         Zamowienie zamowienie = new Zamowienie(1, new Klient(1, "Zbigniew", "Wodecki", "zwodecki@wp.pl"));
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.43);
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
-        when(validator.PrzedmiotNull(przedmiot)).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(true);
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie), "Zamowienie or Przedmiot  is null");
     }
 
 
     @Test
-    void AddPrzedmiotToZamowienieReturnsFalseWhenPrzedmiotIsInZamowienie_przedmiot() {
+    void addPrzedmiotToZamowienieReturnsFalseWhenPrzedmiotIsInZamowienie_przedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -136,11 +136,11 @@ public class ZamowienieControllerMockitoTest {
 
         when(zamowienie_przedmiotRepository.getAllByPrzedmiot(przedmiot)).thenReturn(zamowienie_przedmiots);
 
-        assertFalse(zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie));
+        assertFalse(zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie));
     }
 
     @Test
-    void AddPrzedmiotToZamowienieReturnsTrueWhenPrzedmiotIsNotInZamowienie_przedmiot() {
+    void addPrzedmiotToZamowienieReturnsTrueWhenPrzedmiotIsNotInZamowienie_przedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -149,32 +149,32 @@ public class ZamowienieControllerMockitoTest {
         when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
         when(zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
 
-        assertTrue(zamowienieController.AddPrzedmiotToZamowienie(przedmiot, zamowienie));
+        assertTrue(zamowienieController.addPrzedmiotToZamowienie(przedmiot, zamowienie));
     }
 
     @Test
-    void DeletePrzedmiotFromZamowienieThrowsExceptionWhenBothAreNull() {
+    void deletePrzedmiotFromZamowienieThrowsExceptionWhenBothAreNull() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
-        when(validator.PrzedmiotNull(przedmiot)).thenReturn(true);
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(true);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(true);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(true);
 
         when(zamowienie_przedmiotRepository.AddZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie));
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie));
     }
 
     @Test
-    void DeletePrzedmiotFromZamowienieThrowsExceprionWhenZamowienieIsNull() {
+    void deletePrzedmiotFromZamowienieThrowsExceprionWhenZamowienieIsNull() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
-        when(validator.PrzedmiotNull(przedmiot)).thenReturn(true);
-        when(validator.ZamowienieNull(zamowienie)).thenReturn(false);
+        when(validator.przedmiotNull(przedmiot)).thenReturn(true);
+        when(validator.zamowienieNull(zamowienie)).thenReturn(false);
 
-        assertThrows(IllegalArgumentException.class, () -> zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie));
+        assertThrows(IllegalArgumentException.class, () -> zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie));
     }
 
     @Test
-    void DeletePrzedmiotFromZamowienieReturnsFalseWhenPrzedmiotIsNotInzamowienieprzedmiot() {
+    void deletePrzedmiotFromZamowienieReturnsFalseWhenPrzedmiotIsNotInzamowienieprzedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -182,11 +182,11 @@ public class ZamowienieControllerMockitoTest {
 
         when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
 
-        assertThat(zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie)).isIn(false);
+        assertThat(zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie)).isIn(false);
     }
 
     @Test
-    void DeletePrzedmiotFromZamowienieReturnsTrueWhenPrzedmiotIsInzamowienieprzedmiot() {
+    void deletePrzedmiotFromZamowienieReturnsTrueWhenPrzedmiotIsInzamowienieprzedmiot() {
         Przedmiot przedmiot = new Przedmiot(1, "Debulbator", 23.66);
         Zamowienie zamowienie = new Zamowienie(0, new Klient(1, "adam", "Malysz", "amalysz@wp.pl"));
         List<Zamowienie_Przedmiot> zamowienie_przedmiots = new ArrayList<>();
@@ -195,9 +195,9 @@ public class ZamowienieControllerMockitoTest {
 
         when(zamowienie_przedmiotRepository.getAllByPrzedmiot(any(Przedmiot.class))).thenReturn(zamowienie_przedmiots);
         when(zamowienie_przedmiotRepository.getAllByZamowienie(any(Zamowienie.class))).thenReturn(zamowienie_przedmiots);
-        when(zamowienie_przedmiotRepository.DeleteZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
+        when(zamowienie_przedmiotRepository.deleteZamowieniePrzedmiot(any(Zamowienie_Przedmiot.class))).thenReturn(true);
 
-        assertTrue(zamowienieController.DeletePrzedmiotFromZamowienie(przedmiot, zamowienie));
+        assertTrue(zamowienieController.deletePrzedmiotFromZamowienie(przedmiot, zamowienie));
     }
 
     //getAll
@@ -205,7 +205,7 @@ public class ZamowienieControllerMockitoTest {
     @Test
     void getAllByClientsShouldThrowWhenClientIsNull() {
         Klient klient = new Klient(1, "adam", "małysz", "elo@cos.pl");
-        when(validator.KlientNull(klient)).thenReturn(true);
+        when(validator.klientNull(klient)).thenReturn(true);
 
         assertThrows(IllegalArgumentException.class, () -> zamowienieController.AllZamowienieByKlient(klient));
     }
@@ -214,7 +214,7 @@ public class ZamowienieControllerMockitoTest {
     void getAllByClientsReturnsEmptyListWhenListIsEmpty() {
         Klient klient = new Klient(1, "adam", "małysz", "elo@cos.pl");
         List<Zamowienie> zamowienies = new ArrayList<>();
-        when(zamowienieRepository.GetZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
+        when(zamowienieRepository.getZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
         assertThat(zamowienieController.AllZamowienieByKlient(klient).size()).isIn(0);
     }
 
@@ -225,7 +225,7 @@ public class ZamowienieControllerMockitoTest {
         List<Zamowienie> zamowienies = new ArrayList<>();
         zamowienies.add(zamowienie);
 
-        when(zamowienieRepository.GetZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
+        when(zamowienieRepository.getZamowienieFromKlient(any(Klient.class))).thenReturn(zamowienies);
 
         assertThat(zamowienieController.AllZamowienieByKlient(klient).size()).isEqualTo(1);
     }
@@ -271,17 +271,17 @@ public class ZamowienieControllerMockitoTest {
 
     @Test
     void getByIdZamowienieReturnsNullWhenZamowienieDoesntExist() {
-        when(zamowienieRepository.GetZamowienie(any(Integer.class))).thenReturn(null);
-        assertNull(zamowienieRepository.GetZamowienie(1));
+        when(zamowienieRepository.getZamowienie(any(Integer.class))).thenReturn(null);
+        assertNull(zamowienieRepository.getZamowienie(1));
     }
 
     @Test
-    void GetZamowienieReturnsCorrectIdZamowienieWhenProper() {
+    void getZamowienieReturnsCorrectIdZamowienieWhenProper() {
 
         Klient klient = new Klient(1, "zbysiu", "chcespac", "Jestczwartaajaniespie@pandamax.pl");
         Zamowienie zamowienie = new Zamowienie(1, klient);
-        when(zamowienieRepository.GetZamowienie(1)).thenReturn(zamowienie);
-        assertEquals(zamowienieRepository.GetZamowienie(1).getId(), 1);
+        when(zamowienieRepository.getZamowienie(1)).thenReturn(zamowienie);
+        assertEquals(zamowienieRepository.getZamowienie(1).getId(), 1);
     }
 
 

@@ -7,27 +7,27 @@ import validations.IValidation;
 
 public class AllFalseValEmptyValidatorMock implements IValidation {
     @Override
-    public boolean KlientValid(Klient klient) {
+    public boolean klientValid(Klient klient) {
         return false;
     }
 
     @Override
-    public boolean KlientNull(Klient klient) {
+    public boolean klientNull(Klient klient) {
         return true;
     }
 
     @Override
-    public boolean PrzedmiotValid(Przedmiot przedmiot) {
+    public boolean przedmiotValid(Przedmiot przedmiot) {
         return false;
     }
 
     @Override
-    public boolean PrzedmiotNull(Przedmiot przedmiot) {
+    public boolean przedmiotNull(Przedmiot przedmiot) {
         return true;
     }
 
     @Override
-    public boolean ZamowienieNull(Zamowienie zamowienie) {
+    public boolean zamowienieNull(Zamowienie zamowienie) {
         return true;
     }
 }

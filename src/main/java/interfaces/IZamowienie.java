@@ -8,13 +8,13 @@ import java.util.List;
 public interface IZamowienie {
     List<Zamowienie> getAll();
 
-    Zamowienie GetZamowienie(int zamowienieId);
+    Zamowienie getZamowienie(int zamowienieId);
 
-    List<Zamowienie> GetZamowienieFromKlient(Klient klient);
+    List<Zamowienie> getZamowienieFromKlient(Klient klient);
 
     boolean AddZamowienie(Zamowienie zamowienie);
 
-    boolean DeleteZamowienie(Zamowienie zamowienie);
+    boolean deleteZamowienie(Zamowienie zamowienie);
 
     boolean updateZamowienie(Zamowienie zamowienie);
 }
